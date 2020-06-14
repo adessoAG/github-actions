@@ -40,6 +40,7 @@ jobs:
     - name: Stop gradle deamon
       run: ./gradlew --stop
     - name: SonarQube and Jacoco
-      run: ./gradlew test jacocoTestReport sonarqube -Dsonar.login=${{secrets.SONAR_TOKEN}}      
+      run: ./gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN      
       env: 
         SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
