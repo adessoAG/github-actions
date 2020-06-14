@@ -22,8 +22,7 @@ jobs:
     - name: Build and test with Gradle
       run: ./gradlew build
       
-   
-   sonarcloud:
+  sonarcloud:
 
     runs-on: ubuntu-latest
 
