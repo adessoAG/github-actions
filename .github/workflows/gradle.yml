@@ -39,13 +39,5 @@ jobs:
       run: chmod +x gradlew
     - name: SonarQube and Jacoco
       env:
-        SONAR_TOKEN: ${{secrets.SonarToken}}
+        SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
       run: ./gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN
-      
-  printer:
-    runs-on: ubuntu-latest
-    steps:
-    - shell: bash
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: echo $SONAR_TOKEN
