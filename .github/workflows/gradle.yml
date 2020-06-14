@@ -52,6 +52,6 @@ jobs:
     - name: Archive test results
       uses: actions/upload-artifact@v1
       with:
-        name: Jacoco Test-Report
+        name: Gradle Test report
         path: build/reports/tests/test
     
