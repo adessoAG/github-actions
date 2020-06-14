@@ -45,7 +45,7 @@ jobs:
   printer:
     runs-on: ubuntu-latest
     steps:
-    - shell: pwsh
+    - shell: bash
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: "$env:SONAR_TOKEN"
+      run: echo $SONAR_TOKEN
