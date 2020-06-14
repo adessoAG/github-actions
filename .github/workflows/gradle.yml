@@ -23,18 +23,15 @@ jobs:
       run: ./gradlew build
     
   sonarcloud:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Set up JDK 13
-      uses: actions/setup-java@v1
       with:
-        java-version: 13
-        env: ${{secrets.SONAR_TOKEN}} 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    - name: SonarQube and Jacoco
-      run: ./gradlew test jacocoTestReport sonarqube
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   
