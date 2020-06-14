@@ -48,5 +48,4 @@ jobs:
     - shell: pwsh
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: |
-        example-command "$env:SONAR_TOKEN"
+      run: "$env:SONAR_TOKEN"
