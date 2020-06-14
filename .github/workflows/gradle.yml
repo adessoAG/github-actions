@@ -15,10 +15,10 @@ jobs:
     steps:
     
     - uses: actions/checkout@v2
-    - name: Set up JDK 13
+    - name: Set up JDK 11
       uses: actions/setup-java@v1
       with:
-        java-version: 13
+        java-version: 11
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build and test with Gradle
@@ -31,15 +31,15 @@ jobs:
     steps:
     
     - uses: actions/checkout@v2
-    - name: Set up JDK 13
+    - name: Set up JDK 11
       uses: actions/setup-java@v1
       with:
-        java-version: 13
+        java-version: 11
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Stop gradle deamon
       run: ./gradlew --stop
     - name: SonarQube and Jacoco
-      run: ./gradlew test jacocoTestReport sonarqube -Dsonar.login=${{secrets.SONAR_TOKEN}} --stacktrace
+      run: ./gradlew test jacocoTestReport sonarqube -Dsonar.login=${{secrets.SONAR_TOKEN}}      
       env: 
         SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
