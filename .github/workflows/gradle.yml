@@ -40,7 +40,7 @@ jobs:
     - name: SonarQube and Jacoco
       env:
         SONAR_TOKEN: ${{secrets.SonarToken}}
-      run: ./gradlew sonarqube
+      run: ./gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN
       
   printer:
     runs-on: ubuntu-latest
