@@ -35,8 +35,9 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 13
-        SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: SonarQube and Jacoco
-      run: ./gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN
+      run: ./gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN --debug
+      env: 
+        SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
