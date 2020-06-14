@@ -47,5 +47,11 @@ jobs:
     - name: Archive code coverage results
       uses: actions/upload-artifact@v1
       with:
-        name: code-coverage-report
-        path: build/reports/jacoco/test/html/index.html
+        name: Jacoco Test-Report
+        path: build/reports/jacoco/test/html
+    - name: Archive test results
+      uses: actions/upload-artifact@v1
+      with:
+        name: Jacoco Test-Report
+        path: build/reports/tests/test
+    
