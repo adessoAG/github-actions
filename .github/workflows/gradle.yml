@@ -42,3 +42,11 @@ jobs:
         SONAR_TOKEN: ${{secrets.SonarToken}}
       run: ./gradlew sonarqube
       
+  printer:
+    runs-on: ubuntu-latest
+    steps:
+    - shell: pwsh
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: |
+        example-command "$env:SONAR_TOKEN"
