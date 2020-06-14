@@ -38,6 +38,6 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: SonarQube and Jacoco
-      run: ./gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN --debug
+      run: ./gradlew test jacocoTestReport sonarqube -Dsonar.login=${{secrets.SONAR_TOKEN}} --debug
       env: 
         SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
